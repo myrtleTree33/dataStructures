@@ -79,6 +79,41 @@ describe('binary search tree', function () {
         done();
       });
     });
+  });
 
+  describe('when searching', function () {
+    var tree = new BinarySearchTree(null, comparator);
+    tree.insert(20);
+    tree.insert(40);
+    tree.insert(35);
+    tree.insert(45);
+    tree.insert(42);
+    tree.insert(80);
+    tree.insert(17);
+    tree.insert(15);
+    tree.insert(19);
+    tree.insert(10);
+    tree.insert(18);
+    tree.insert(16);
+
+    it('will return searched value if valid', function () {
+      var data = tree.find(19);
+      console.log(data);
+      data.should.equal(19);
+    });
+
+    it('will return null if invalid', function () {
+      var data = true;
+      data = tree.find(-1);
+      console.log(data);
+      (data === null).should.be.true;
+    });
+
+    // it('will return null if not found', function () {
+    //   var data = tree.find(98, 'dfs');
+    //   assert(data === null);
+    //   var data2 = tree.find(98, 'bfs');
+    //   assert(data2 === null);
+    // });
   });
 });
